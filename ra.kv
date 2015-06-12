@@ -1,0 +1,51 @@
+#:kivy 1.8.0
+
+<Card>:
+    size: 200, 100
+    canvas:
+        Rectangle:
+            pos:self.pos
+            size:self.size
+
+<WrapText@Label>
+    text_size: self.size
+    font_size: '10pt'
+    markup: True
+    padding_x: -10
+    padding_y: -10
+    valign: 'top'
+
+
+[Popup_Button@ImgBtn]:
+    source: ctx.img
+    size_hint: ctx.s_hint
+    on_press:
+        root.dispPop()
+
+
+<GameScreen>:
+    id: Game
+    BoxLayout:
+        orientation: "vertical"
+        padding: '20dp'
+        spacing: '10dp'
+        BoxLayout:
+            spacing: '10dp'
+            orientation: "horizontal"
+            Button:
+                size_hint: 1,.5
+            Button:
+                size_hint: 1,.5
+            Button:
+                size_hint: 1,.5
+        BoxLayout:
+            spacing: '10dp'
+            orientation: "horizontal"
+            Button:
+                size_hint: 1,1
+            Button:
+                size_hint: 2,1
+            Button:
+                size_hint: 1,1
+        Button:
+            size_hint: 1,.25
