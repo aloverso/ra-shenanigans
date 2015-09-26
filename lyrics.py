@@ -45,6 +45,9 @@ def search_for(search_term, exact_flag):
 	all_songs = os.listdir(sys.path[0]+"/lyrics")
 	match_lines = []
 	search_term = search_term.lower()
+
+	results = []
+
 	for song_file in all_songs:
 		f = open("lyrics/"+song_file)
 		lines = list(f)
@@ -65,7 +68,9 @@ def search_for(search_term, exact_flag):
 					context = lines[i-1] + context
 				if i != len(lines)-1:
 					context += lines[i+1]
-				print_match(lines[0],context)
+				results.append(lines[0] + " contains a match!\n" + context)
+				#print_match(lines[0],context)
+	return results
 
 def get_stats():
 	all_songs = os.listdir(sys.path[0]+"/lyrics")
@@ -105,7 +110,7 @@ def print_match(title, context):
 	print context
 
 if __name__ == "__main__":
-	#get_stats()
+	get_stats()
 	#get_all_lyrics()
 	exact_flag = False
 	if len(sys.argv) == 3:

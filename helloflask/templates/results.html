@@ -1,0 +1,25 @@
+<html>
+  <head>
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Search results</title>
+    {% endif %}
+  </head>
+  <body>
+    <h1>Search results for {{ search_term }}</h1>
+    <p>{{ song_count }} unique songs</p>
+    <a href="/">New search</a>
+    {% for result in results %}
+    <h3>{{ result.title }}</h3>
+    <div><p>
+    {{ result.body.line1 }}</br>
+    {{ result.body.line2 }}</br>
+    {{ result.body.line3 }}</br>
+    </p></div>
+    {% endfor %}
+  </body>
+  <footer>
+    <p>App created by Anne LoVerso, (c) 2015.  <a href="http://anneloverso.com/">www.anneloverso.com</a></p>
+</footer>
+</html>
